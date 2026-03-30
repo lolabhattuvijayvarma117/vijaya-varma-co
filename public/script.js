@@ -104,14 +104,50 @@ document.addEventListener('DOMContentLoaded', () => {
     leftElements.forEach(el => appearOnScroll.observe(el));
     rightElements.forEach(el => appearOnScroll.observe(el));
 
-    // 5. Form Submission (Prevent Default for Demo)
+    // 5. Form Submission (Send to Backend)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            // Show alert or handle form submission logic
-            alert('Thank you for reaching out! Your message has been sent successfully.');
-            contactForm.reset();
+            const btn = document.getElementById('submit-btn');
+            const responseDiv = document.getElementById('form-response');
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            responseDiv.style.display = 'none';
+
+            try {
+                const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+                });
+                const result = await res.json();
+
+                if (result.success) {
+                responseDiv.style.background = '#d4edda';
+                responseDiv.style.color = '#155724';
+                responseDiv.style.border = '1px solid #c3e6cb';
+                responseDiv.textContent = '✅ ' + result.message;
+                this.reset();
+                } else {
+                responseDiv.style.background = '#f8d7da';
+                responseDiv.style.color = '#721c24';
+                responseDiv.style.border = '1px solid #f5c6cb';
+                responseDiv.textContent = '❌ ' + result.error;
+                }
+            } catch (err) {
+                responseDiv.style.background = '#f8d7da';
+                responseDiv.style.color = '#721c24';
+                responseDiv.style.border = '1px solid #f5c6cb';
+                responseDiv.textContent = '❌ Something went wrong. Please try again.';
+            } finally {
+                responseDiv.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+            }
         });
     }
 

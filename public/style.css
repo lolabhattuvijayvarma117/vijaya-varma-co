@@ -1071,6 +1071,17 @@ img {
 }
 
 /* Responsive Styles */
+
+/* TASK 1: GENERAL LAYOUT (Global Resets) */
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+body { overflow-x: hidden; }
+
+/* Font size clamps for all headings (h1, h2, h3) */
+h1 { font-size: clamp(28px, 6vw, 56px); }
+h2 { font-size: clamp(24px, 5vw, 40px); }
+h3 { font-size: clamp(20px, 4vw, 24px); }
+
 @media (max-width: 1024px) {
     .highlight-cards {
         grid-template-columns: repeat(2, 1fr);
@@ -1079,12 +1090,10 @@ img {
     .cargo-ticker {
         margin-top: 140px;
     }
-    .hero-text h1 {
-        font-size: 3rem;
-    }
 }
 
 @media (max-width: 768px) {
+    /* TASK 1: NAVBAR */
     .menu-toggle {
         display: block;
     }
@@ -1107,48 +1116,84 @@ img {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
-    .hero-text h1 {
-        font-size: 2.5rem;
+    .logo-text { font-size: clamp(14px, 3vw, 20px); }
+
+    /* TASK 1: GENERAL LAYOUT (Grid/flex containers to max-width + single column) */
+    .container, .container-sm {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 16px;
     }
 
     .about-container,
     .lab-container,
-    .contact-grid {
+    .contact-grid,
+    .op-grid,
+    .services-grid,
+    .clients-grid,
+    .work-orders-carousel,
+    .footer-container {
         grid-template-columns: 1fr;
     }
 
-    .op-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .op-img {
         min-height: 250px;
         order: -1;
     }
     
+    /* TASK 1: FOOTER (Stack columns) */
     .footer-container {
-        grid-template-columns: 1fr;
         gap: 30px;
     }
 }
 
 @media (max-width: 480px) {
+    /* TASK 1: HERO SECTION */
+    .hero-text h1 {
+        font-size: clamp(28px, 6vw, 56px);
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
     .highlight-cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack vertically */
         position: relative;
         bottom: 0;
         margin-top: -50px;
     }
+    
     .cargo-ticker {
         margin-top: 50px;
+        overflow-x: hidden;
     }
+
     .tabs-header {
         flex-direction: column;
     }
-    .hero-buttons {
-        flex-direction: column;
-    }
+
     .section {
         padding: 50px 0;
+    }
+    
+    /* TASK 1: CONTACT FORM */
+    .form-group input, 
+    .form-group textarea, 
+    .form-group select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .contact-form {
+        display: flex;
+        flex-direction: column;
     }
 }
