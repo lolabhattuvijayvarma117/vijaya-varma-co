@@ -195,11 +195,11 @@ img {
     box-shadow: var(--shadow-sm);
     z-index: 1000;
     transition: var(--transition);
-    padding: 12px 0;
+    padding: 10px 0;
 }
 
 .navbar.scrolled {
-    padding: 10px 0;
+    padding: 8px 0;
     box-shadow: var(--shadow-md);
 }
 
@@ -207,17 +207,19 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .logo-link {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logo-img {
-    height: 72px;
+    height: 60px;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
@@ -228,24 +230,25 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 3px;
+    gap: 2px;
     border-left: 2px solid #c8d2dc;
-    padding-left: 16px;
+    padding-left: 12px;
+    flex-shrink: 0;
 }
 
 .logo-text {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.65rem;
     font-weight: 700;
     color: var(--primary-color);
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     line-height: 1.1;
     white-space: nowrap;
 }
 
 .logo-tagline {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     font-style: italic;
     font-weight: 400;
     color: #6b7a8d;
@@ -257,16 +260,17 @@ img {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 18px;
 }
 
 .nav-links li a {
     color: var(--primary-color);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.83rem;
     text-transform: capitalize;
     position: relative;
     padding: 5px 0;
+    white-space: nowrap;
 }
 
 .nav-links li a::after {
@@ -288,7 +292,7 @@ img {
 .nav-links li a.btn-contact {
     background-color: var(--primary-color);
     color: var(--bg-white);
-    padding: 8px 20px;
+    padding: 7px 16px;
     border-radius: var(--radius-sm);
 }
 
@@ -1094,6 +1098,28 @@ h1 { font-size: clamp(28px, 6vw, 56px); }
 h2 { font-size: clamp(24px, 5vw, 40px); }
 h3 { font-size: clamp(20px, 4vw, 24px); }
 
+@media (max-width: 1200px) {
+    .logo-text {
+        font-size: 1.45rem;
+    }
+
+    .logo-tagline {
+        font-size: 0.72rem;
+    }
+
+    .logo-img {
+        height: 54px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links li a {
+        font-size: 0.8rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .highlight-cards {
         grid-template-columns: repeat(2, 1fr);
@@ -1129,19 +1155,19 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     }
 
     .logo-img {
-        height: 48px;
+        height: 44px;
     }
 
-    .logo-text { font-size: clamp(14px, 4vw, 1.6rem); }
+    .logo-text { font-size: clamp(13px, 3.8vw, 1.4rem); }
 
     .logo-tagline {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         white-space: normal;
         word-break: break-word;
     }
 
     .logo-text-wrapper {
-        padding-left: 12px;
+        padding-left: 10px;
     }
 
     /* TASK 1: GENERAL LAYOUT (Grid/flex containers to max-width + single column) */
