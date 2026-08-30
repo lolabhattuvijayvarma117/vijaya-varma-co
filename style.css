@@ -185,6 +185,8 @@ img {
 /* =========================================================================
    NAVBAR — Desktop Two-Zone Layout
    ========================================================================= */
+
+   ========================================================================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -355,14 +357,16 @@ img {
 /* =========================================================================
    HERO SECTION
    ========================================================================= */
+
+   ========================================================================= */
 .hero {
     position: relative;
     height: 100vh;
     min-height: 600px;
-    background: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background: url('assets/hero-ship.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
-    padding-top: 85px; /* Offset for single-row navbar */
+    padding-top: 85px;
 }
 
 .hero-overlay {
@@ -1138,6 +1142,11 @@ h1 { font-size: clamp(28px, 6vw, 56px); }
 h2 { font-size: clamp(24px, 5vw, 40px); }
 h3 { font-size: clamp(20px, 4vw, 24px); }
 
+
+/* =========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================= */
+
 /* ---- 1280px: tighten desktop nav to prevent merging ---- */
 @media (max-width: 1280px) {
     .nav-container  { padding: 10px 20px; }
@@ -1164,23 +1173,28 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     .nav-contact-desktop { padding: 5px 12px; font-size: 0.72rem; }
 }
 
+/* ---- 1024px: highlight cards layout ---- */
+@media (max-width: 1024px) {
+    .highlight-cards {
+        grid-template-columns: repeat(2, 1fr);
+        bottom: -100px;
+    }
+    .cargo-ticker {
+        margin-top: 140px;
+    }
+}
+
 /* ---- 900px: hamburger breakpoint ---- */
 @media (max-width: 900px) {
-
-    /* Show hamburger, hide desktop Contact */
     .menu-toggle         { display: block; }
     .nav-contact-desktop { display: none; }
-
-    /* Show Contact inside the mobile menu */
     .nav-contact-mobile  { display: list-item; }
 
-    /* Slide-down mobile menu */
     .nav-links {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 4px;
-        /* slide out of view by default */
         position: absolute;
         top: 100%;
         left: 0;
@@ -1189,7 +1203,6 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
         border-top: 1px solid var(--border-color);
         box-shadow: var(--shadow-md);
         padding: 12px 0 20px;
-        /* hidden state — height 0 via clip */
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: clip-path 0.35s ease;
         z-index: 999;
@@ -1207,25 +1220,17 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
         display: block;
     }
 
-    /* no underline animation on mobile links */
     .nav-links li a::after { display: none; }
 
-    /* Scale nav-container */
     .nav-container { padding: 6px 15px; }
     .logo-img   { height: 46px; }
     .logo-text  { font-size: clamp(1rem, 4.5vw, 1.6rem); }
-    .logo-tagline {
-        font-size: 0.7rem;
-        white-space: normal;
-    }
+    .logo-tagline { font-size: 0.7rem; white-space: normal; }
     .logo-text-wrapper { padding-left: 10px; }
-
-    /* hero offset for single-row header at mobile */
     .hero { padding-top: 70px; }
 }
 
 @media (max-width: 768px) {
-    /* Non-navbar layout rules */
     .container, .container-sm {
         max-width: 100%;
         width: 100%;
@@ -1247,27 +1252,18 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
         min-height: 250px;
         order: -1;
     }
-
-    .footer-container { gap: 30px; }
-}
-
-/* ---- 1024px: highlight cards layout ---- */
-@media (max-width: 1024px) {
-    .highlight-cards {
-        grid-template-columns: repeat(2, 1fr);
-        bottom: -100px;
+    
+    .footer-container {
+        gap: 30px;
     }
-    .cargo-ticker { margin-top: 140px; }
 }
 
-/* ---- 480px: small phones ---- */
 @media (max-width: 480px) {
     .logo-img  { height: 38px; }
     .logo-text { font-size: clamp(0.85rem, 4vw, 1.1rem); }
     .logo-tagline { font-size: 0.62rem; }
     .logo-text-wrapper { padding-left: 8px; gap: 1px; }
 
-    /* TASK 1: HERO SECTION */
     .hero-text h1 {
         font-size: clamp(28px, 6vw, 56px);
     }
@@ -1284,7 +1280,7 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     }
 
     .highlight-cards {
-        grid-template-columns: 1fr; /* Stack vertically */
+        grid-template-columns: 1fr;
         position: relative;
         bottom: 0;
         margin-top: -50px;
@@ -1303,7 +1299,6 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
         padding: 50px 0;
     }
     
-    /* TASK 1: CONTACT FORM */
     .form-group input, 
     .form-group textarea, 
     .form-group select {
