@@ -315,7 +315,7 @@ img {
     position: relative;
     height: 100vh;
     min-height: 600px;
-    background: url('https://images.unsplash.com/photo-1568338529095-c4e6bd80b4e3?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background: url('assets/hero-ship.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     padding-top: 80px;
