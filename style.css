@@ -220,11 +220,8 @@ img {
     height: 56px;
     width: auto;
     object-fit: contain;
-    object-position: center;
     flex-shrink: 0;
     display: block;
-    /* Trim any excessive transparent/white padding visually */
-    filter: drop-shadow(0 0 0 transparent);
 }
 
 .logo-text-wrapper {
