@@ -183,28 +183,31 @@ img {
 }
 
 /* =========================================================================
-   NAVBAR — Two-Row Layout
+   NAVBAR — Brand row + three-column nav row
    ========================================================================= */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     z-index: 1000;
-    transition: var(--transition);
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: var(--shadow-md);
 }
 
 /* ---- Brand Row ---- */
 .brand-row {
+    border-bottom: 1px solid var(--border-color);
     padding: 8px 0;
-    border-bottom: 1px solid #e8ecf1;
 }
 
 .logo-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 14px;
     text-decoration: none;
@@ -238,33 +241,37 @@ img {
 }
 
 .logo-tagline {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-heading);
     font-size: 0.85rem;
     font-style: italic;
     font-weight: 400;
-    color: #6b7a8d;
+    color: var(--text-muted);
     letter-spacing: 0.2px;
     line-height: 1.3;
     white-space: nowrap;
 }
 
-/* ---- Nav Row ---- */
+/* ---- Nav Row (desktop: three-column) ---- */
 .nav-row {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.98);
+    position: relative;           /* anchor for mobile dropdown */
 }
 
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;      /* center nav-links */
+    position: relative;           /* so absolute children work */
+    min-height: 44px;
 }
 
+/* Nav links list — centered */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 20px;
+    list-style: none;
     padding: 10px 0;
+    margin: 0;
 }
 
 .nav-links li a {
@@ -275,6 +282,7 @@ img {
     position: relative;
     padding: 4px 0;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .nav-links li a::after {
@@ -285,7 +293,7 @@ img {
     width: 0;
     height: 2px;
     background-color: var(--accent-color);
-    transition: var(--transition);
+    transition: width 0.3s ease;
 }
 
 .nav-links li a:hover::after,
@@ -293,11 +301,41 @@ img {
     width: 100%;
 }
 
+/* Contact button — desktop version pinned to the right */
+.nav-contact-desktop {
+    position: absolute;
+    right: 15px;                  /* matches .container padding */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 7px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.88rem;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.nav-contact-desktop:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Contact item inside mobile menu — hidden on desktop */
+.nav-contact-mobile {
+    display: none;
+}
+
+/* Btn-contact inside the nav-links (mobile menu) */
 .nav-links li a.btn-contact {
     background-color: var(--primary-color);
     color: var(--bg-white);
-    padding: 7px 18px;
+    padding: 8px 24px;
     border-radius: var(--radius-sm);
+    display: inline-block;
 }
 
 .nav-links li a.btn-contact::after {
@@ -306,15 +344,22 @@ img {
 
 .nav-links li a.btn-contact:hover {
     background-color: var(--accent-color);
-    box-shadow: var(--shadow-sm);
 }
 
+/* Hamburger — hidden on desktop */
 .menu-toggle {
     display: none;
-    font-size: 1.5rem;
+    background: none;
+    border: none;
     cursor: pointer;
+    font-size: 1.4rem;
     color: var(--primary-color);
-    padding: 10px 0;
+    padding: 8px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
 }
 
 /* =========================================================================
@@ -1103,61 +1148,43 @@ h1 { font-size: clamp(28px, 6vw, 56px); }
 h2 { font-size: clamp(24px, 5vw, 40px); }
 h3 { font-size: clamp(20px, 4vw, 24px); }
 
+/* ---- 1200px: tighten desktop nav slightly ---- */
 @media (max-width: 1200px) {
-    .logo-text {
-        font-size: 1.45rem;
-    }
-
-    .logo-tagline {
-        font-size: 0.72rem;
-    }
-
-    .logo-img {
-        height: 54px;
-    }
-
-    .nav-links {
-        gap: 14px;
-    }
-
-    .nav-links li a {
-        font-size: 0.8rem;
-    }
+    .logo-text      { font-size: 1.6rem; }
+    .logo-tagline   { font-size: 0.78rem; }
+    .logo-img       { height: 56px; }
+    .nav-links      { gap: 16px; }
+    .nav-links li a { font-size: 0.84rem; }
 }
 
-@media (max-width: 1024px) {
-    .highlight-cards {
-        grid-template-columns: repeat(2, 1fr);
-        bottom: -100px;
-    }
-    .cargo-ticker {
-        margin-top: 140px;
-    }
-}
+/* ---- 900px: hamburger breakpoint ---- */
+@media (max-width: 900px) {
 
-@media (max-width: 768px) {
-    /* TASK 1: NAVBAR */
-    .menu-toggle {
-        display: block;
-    }
+    /* Show hamburger, hide desktop Contact */
+    .menu-toggle         { display: block; }
+    .nav-contact-desktop { display: none; }
 
-    /* On mobile, nav-container shows only the hamburger (right-aligned) */
-    .nav-container {
-        justify-content: flex-end;
-    }
+    /* Show Contact inside the mobile menu */
+    .nav-contact-mobile  { display: list-item; }
 
+    /* Slide-down mobile menu */
     .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        /* slide out of view by default */
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--bg-white);
-        flex-direction: column;
-        padding: 20px 0;
+        border-top: 1px solid var(--border-color);
         box-shadow: var(--shadow-md);
+        padding: 12px 0 20px;
+        /* hidden state — height 0 via clip */
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-        transition: clip-path 0.4s ease-in-out;
-        gap: 15px;
+        transition: clip-path 0.35s ease;
         z-index: 999;
     }
 
@@ -1165,28 +1192,33 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 
-    /* Scale brand row for mobile */
-    .brand-row {
-        padding: 6px 0;
+    .nav-links li a {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+        display: block;
     }
 
-    .logo-img {
-        height: 44px;
-    }
+    /* no underline animation on mobile links */
+    .nav-links li a::after { display: none; }
 
-    .logo-text { font-size: clamp(13px, 3.8vw, 1.5rem); }
-
+    /* Scale brand row */
+    .brand-row  { padding: 6px 0; }
+    .logo-img   { height: 46px; }
+    .logo-text  { font-size: clamp(1rem, 4.5vw, 1.6rem); }
     .logo-tagline {
-        font-size: 0.68rem;
+        font-size: 0.7rem;
         white-space: normal;
-        word-break: break-word;
     }
+    .logo-text-wrapper { padding-left: 10px; }
 
-    .logo-text-wrapper {
-        padding-left: 10px;
-    }
+    /* hero offset for two-row header at mobile */
+    .hero { padding-top: 110px; }
+}
 
-    /* TASK 1: GENERAL LAYOUT (Grid/flex containers to max-width + single column) */
+@media (max-width: 768px) {
+    /* Non-navbar layout rules */
     .container, .container-sm {
         max-width: 100%;
         width: 100%;
@@ -1208,31 +1240,25 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
         min-height: 250px;
         order: -1;
     }
-    
-    /* TASK 1: FOOTER (Stack columns) */
-    .footer-container {
-        gap: 30px;
-    }
+
+    .footer-container { gap: 30px; }
 }
 
+/* ---- 1024px: highlight cards layout ---- */
+@media (max-width: 1024px) {
+    .highlight-cards {
+        grid-template-columns: repeat(2, 1fr);
+        bottom: -100px;
+    }
+    .cargo-ticker { margin-top: 140px; }
+}
+
+/* ---- 480px: small phones ---- */
 @media (max-width: 480px) {
-    /* Logo on very small screens */
-    .logo-img {
-        height: 40px;
-    }
-
-    .logo-text {
-        font-size: clamp(12px, 4.5vw, 1.3rem);
-    }
-
-    .logo-tagline {
-        font-size: 0.64rem;
-    }
-
-    .logo-text-wrapper {
-        padding-left: 10px;
-        gap: 2px;
-    }
+    .logo-img  { height: 38px; }
+    .logo-text { font-size: clamp(0.85rem, 4vw, 1.1rem); }
+    .logo-tagline { font-size: 0.62rem; }
+    .logo-text-wrapper { padding-left: 8px; gap: 1px; }
 
     /* TASK 1: HERO SECTION */
     .hero-text h1 {

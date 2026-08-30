@@ -1,66 +1,69 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // Set Current Year in Footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // 1. Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            // Toggle icon between bars and times
-            const icon = mobileMenuBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+    // ── 1. Mobile Menu Toggle ──────────────────────────────────────────────
+    const menuBtn  = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+    const navRow   = document.querySelector('.nav-row');
+
+    function openMenu() {
+        navLinks.classList.add('active');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        menuBtn.querySelector('i').className = 'fas fa-times';
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.querySelector('i').className = 'fas fa-bars';
+    }
+
+    if (menuBtn && navLinks) {
+        // Toggle on hamburger click
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.contains('active') ? closeMenu() : openMenu();
+        });
+
+        // Close when any nav link is tapped
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
         });
     }
 
-    // Close mobile menu when a link is clicked
-    const navItems = document.querySelectorAll('.nav-links li a');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+    // Close when clicking outside the nav-row
+    document.addEventListener('click', (e) => {
+        if (navLinks && navLinks.classList.contains('active')) {
+            if (!navRow.contains(e.target)) {
+                closeMenu();
             }
-        });
+        }
     });
 
-    // 2. Sticky Navbar & Active Link Update on Scroll
-    const navbar = document.getElementById('navbar');
+    // ── 2. Sticky Navbar & Active Link on Scroll ──────────────────────────
+    const navbar  = document.getElementById('navbar');
     const sections = document.querySelectorAll('section');
-    
-    window.addEventListener('scroll', () => {
-        // Sticky Navbar
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+    // Select anchors from both the mobile list and the desktop contact button
+    const allNavAnchors = document.querySelectorAll('.nav-links a, .nav-contact-desktop');
 
-        // Active Link Update
+    window.addEventListener('scroll', () => {
+        // Scrolled shadow
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+
+        // Active link highlight
         let current = '';
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= (sectionTop - 200)) {
+            if (window.scrollY >= section.offsetTop - 200) {
                 current = section.getAttribute('id');
             }
         });
 
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.add('active');
+        allNavAnchors.forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === `#${current}`) {
+                a.classList.add('active');
             }
         });
     });

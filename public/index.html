@@ -18,6 +18,7 @@
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
+
         <!-- Row 1: Brand -->
         <div class="brand-row">
             <div class="container">
@@ -30,13 +31,18 @@
                 </a>
             </div>
         </div>
+
         <!-- Row 2: Navigation -->
         <div class="nav-row">
             <div class="container nav-container">
-                <div class="menu-toggle" id="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="nav-links">
+
+                <!-- Hamburger (mobile only) -->
+                <button class="menu-toggle" id="mobile-menu" aria-label="Open navigation menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+
+                <!-- Nav links (desktop centred, mobile slide-down) -->
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
@@ -45,11 +51,16 @@
                     <li><a href="#clients">Clients</a></li>
                     <li><a href="#work-orders">Work Orders</a></li>
                     <li><a href="#ports">Ports</a></li>
-                    <li><a href="#contact" class="btn-contact">Contact</a></li>
+                    <li class="nav-contact-mobile"><a href="#contact" class="btn-contact">Contact</a></li>
                 </ul>
+
+                <!-- Contact button (desktop right, hidden on mobile) -->
+                <a href="#contact" class="btn-contact nav-contact-desktop">Contact</a>
+
             </div>
         </div>
     </nav>
+
 
     <!-- HERO SECTION -->
     <section id="home" class="hero">
