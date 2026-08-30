@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── 1. Mobile Menu Toggle ──────────────────────────────────────────────
     const menuBtn  = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
-    const navRow   = document.querySelector('.nav-row');
+    const navbar   = document.querySelector('.navbar');
 
     function openMenu() {
         navLinks.classList.add('active');
@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close when clicking outside the nav-row
+    // Close when clicking outside the navbar
     document.addEventListener('click', (e) => {
         if (navLinks && navLinks.classList.contains('active')) {
-            if (!navRow.contains(e.target)) {
+            if (!navbar.contains(e.target)) {
                 closeMenu();
             }
         }

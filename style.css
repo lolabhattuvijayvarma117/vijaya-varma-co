@@ -183,7 +183,7 @@ img {
 }
 
 /* =========================================================================
-   NAVBAR — Brand row + three-column nav row
+   NAVBAR — Desktop Two-Zone Layout
    ========================================================================= */
 .navbar {
     position: fixed;
@@ -200,12 +200,14 @@ img {
     box-shadow: var(--shadow-md);
 }
 
-/* ---- Brand Row ---- */
-.brand-row {
-    border-bottom: 1px solid var(--border-color);
-    padding: 8px 0;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px; /* baseline padding */
 }
 
+/* ---- Left Zone: Brand ---- */
 .logo-link {
     display: inline-flex;
     align-items: center;
@@ -251,26 +253,20 @@ img {
     white-space: nowrap;
 }
 
-/* ---- Nav Row (desktop: three-column) ---- */
-.nav-row {
-    position: relative;           /* anchor for mobile dropdown */
-}
-
-.nav-container {
+/* ---- Right Zone: Grouped Cluster ---- */
+.nav-right {
     display: flex;
     align-items: center;
-    justify-content: center;      /* center nav-links */
-    position: relative;           /* so absolute children work */
-    min-height: 44px;
+    gap: 24px; /* Gap between the nav list and Contact button */
 }
 
-/* Nav links list — centered */
+/* Nav links list */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 22px; /* Tight gap between individual nav items */
     list-style: none;
-    padding: 10px 0;
+    padding: 0;
     margin: 0;
 }
 
@@ -301,12 +297,8 @@ img {
     width: 100%;
 }
 
-/* Contact button — desktop version pinned to the right */
+/* Contact button — desktop version */
 .nav-contact-desktop {
-    position: absolute;
-    right: 15px;                  /* matches .container padding */
-    top: 50%;
-    transform: translateY(-50%);
     background-color: var(--primary-color);
     color: var(--bg-white);
     padding: 7px 20px;
@@ -355,10 +347,6 @@ img {
     font-size: 1.4rem;
     color: var(--primary-color);
     padding: 8px;
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
     line-height: 1;
 }
 
@@ -372,7 +360,7 @@ img {
     background: url('assets/hero-ship.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
-    padding-top: 125px;
+    padding-top: 85px; /* Offset for single-row navbar */
 }
 
 .hero-overlay {
@@ -1203,8 +1191,8 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     /* no underline animation on mobile links */
     .nav-links li a::after { display: none; }
 
-    /* Scale brand row */
-    .brand-row  { padding: 6px 0; }
+    /* Scale nav-container */
+    .nav-container { padding: 6px 15px; }
     .logo-img   { height: 46px; }
     .logo-text  { font-size: clamp(1rem, 4.5vw, 1.6rem); }
     .logo-tagline {
@@ -1213,8 +1201,8 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     }
     .logo-text-wrapper { padding-left: 10px; }
 
-    /* hero offset for two-row header at mobile */
-    .hero { padding-top: 110px; }
+    /* hero offset for single-row header at mobile */
+    .hero { padding-top: 70px; }
 }
 
 @media (max-width: 768px) {
