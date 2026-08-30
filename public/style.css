@@ -206,7 +206,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 40px; /* generous padding like reference */
+    padding: 12px 15px; /* generous padding like reference */
     width: 100%;
     max-width: 100%;
 }
@@ -1149,7 +1149,7 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
 
 /* ---- 1280px: tighten desktop nav to prevent merging ---- */
 @media (max-width: 1280px) {
-    .nav-container  { padding: 10px 20px; }
+    .nav-container  { padding: 10px 10px; }
     .logo-text      { font-size: 1.45rem; }
     .logo-tagline   { font-size: 0.72rem; }
     .logo-img       { height: 48px; }
@@ -1159,19 +1159,6 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     .nav-contact-desktop { padding: 6px 16px; font-size: 0.78rem; }
 }
 
-/* ---- 1080px: aggressively shrink for narrow desktops before hamburger ---- */
-@media (max-width: 1080px) {
-    .nav-container  { padding: 10px 15px; }
-    .logo-text      { font-size: 1.25rem; }
-    .logo-tagline   { font-size: 0.65rem; }
-    .logo-img       { height: 44px; }
-    .logo-text-wrapper { padding-left: 10px; gap: 0; border-left-width: 1px; }
-    .logo-link      { gap: 10px; }
-    .nav-right      { gap: 14px; }
-    .nav-links      { gap: 10px; }
-    .nav-links li a { font-size: 0.7rem; }
-    .nav-contact-desktop { padding: 5px 12px; font-size: 0.72rem; }
-}
 
 /* ---- 1024px: highlight cards layout ---- */
 @media (max-width: 1024px) {
@@ -1184,8 +1171,8 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     }
 }
 
-/* ---- 900px: hamburger breakpoint ---- */
-@media (max-width: 900px) {
+/* ---- 1150px: hamburger breakpoint (prevents text overlap) ---- */
+@media (max-width: 1150px) {
     .menu-toggle         { display: block; }
     .nav-contact-desktop { display: none; }
     .nav-contact-mobile  { display: list-item; }
@@ -1214,7 +1201,7 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
 
     .nav-links li a {
         font-size: 0.95rem;
-        padding: 10px 20px;
+        padding: 10px 10px;
         width: 100%;
         text-align: center;
         display: block;
