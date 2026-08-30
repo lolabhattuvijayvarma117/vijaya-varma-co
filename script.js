@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ── 2. Sticky Navbar & Active Link on Scroll ──────────────────────────
-    const navbar  = document.getElementById('navbar');
     const sections = document.querySelectorAll('section');
     // Select anchors from both the mobile list and the desktop contact button
     const allNavAnchors = document.querySelectorAll('.nav-links a, .nav-contact-desktop');
