@@ -183,7 +183,7 @@ img {
 }
 
 /* =========================================================================
-   NAVBAR
+   NAVBAR — Two-Row Layout
    ========================================================================= */
 .navbar {
     position: fixed;
@@ -192,34 +192,26 @@ img {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     z-index: 1000;
     transition: var(--transition);
-    padding: 10px 0;
 }
 
-.navbar.scrolled {
+/* ---- Brand Row ---- */
+.brand-row {
     padding: 8px 0;
-    box-shadow: var(--shadow-md);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    border-bottom: 1px solid #e8ecf1;
 }
 
 .logo-link {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     text-decoration: none;
-    flex-shrink: 0;
 }
 
 .logo-img {
-    height: 60px;
+    height: 64px;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
@@ -230,25 +222,24 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2px;
+    gap: 3px;
     border-left: 2px solid #c8d2dc;
-    padding-left: 12px;
-    flex-shrink: 0;
+    padding-left: 14px;
 }
 
 .logo-text {
     font-family: var(--font-heading);
-    font-size: 1.65rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--primary-color);
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     line-height: 1.1;
     white-space: nowrap;
 }
 
 .logo-tagline {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-style: italic;
     font-weight: 400;
     color: #6b7a8d;
@@ -257,19 +248,32 @@ img {
     white-space: nowrap;
 }
 
+/* ---- Nav Row ---- */
+.nav-row {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 22px;
+    padding: 10px 0;
 }
 
 .nav-links li a {
     color: var(--primary-color);
     font-weight: 600;
-    font-size: 0.83rem;
+    font-size: 0.88rem;
     text-transform: capitalize;
     position: relative;
-    padding: 5px 0;
+    padding: 4px 0;
     white-space: nowrap;
 }
 
@@ -292,7 +296,7 @@ img {
 .nav-links li a.btn-contact {
     background-color: var(--primary-color);
     color: var(--bg-white);
-    padding: 7px 16px;
+    padding: 7px 18px;
     border-radius: var(--radius-sm);
 }
 
@@ -310,6 +314,7 @@ img {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--primary-color);
+    padding: 10px 0;
 }
 
 /* =========================================================================
@@ -322,7 +327,7 @@ img {
     background: url('assets/hero-ship.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 125px;
 }
 
 .hero-overlay {
@@ -1135,7 +1140,12 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     .menu-toggle {
         display: block;
     }
-    
+
+    /* On mobile, nav-container shows only the hamburger (right-aligned) */
+    .nav-container {
+        justify-content: flex-end;
+    }
+
     .nav-links {
         position: absolute;
         top: 100%;
@@ -1148,17 +1158,23 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
         transition: clip-path 0.4s ease-in-out;
         gap: 15px;
+        z-index: 999;
     }
-    
+
     .nav-links.active {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* Scale brand row for mobile */
+    .brand-row {
+        padding: 6px 0;
     }
 
     .logo-img {
         height: 44px;
     }
 
-    .logo-text { font-size: clamp(13px, 3.8vw, 1.4rem); }
+    .logo-text { font-size: clamp(13px, 3.8vw, 1.5rem); }
 
     .logo-tagline {
         font-size: 0.68rem;
