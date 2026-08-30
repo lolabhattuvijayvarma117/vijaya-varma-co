@@ -205,6 +205,8 @@ img {
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px; /* baseline padding */
+    width: 96%;
+    max-width: 1400px;
 }
 
 /* ---- Left Zone: Brand ---- */
@@ -216,7 +218,7 @@ img {
 }
 
 .logo-img {
-    height: 64px;
+    height: 58px;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
@@ -234,17 +236,17 @@ img {
 
 .logo-text {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     line-height: 1.1;
     white-space: nowrap;
 }
 
 .logo-tagline {
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-style: italic;
     font-weight: 400;
     color: var(--text-muted);
@@ -257,14 +259,14 @@ img {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 24px; /* Gap between the nav list and Contact button */
+    gap: 20px; /* Gap between the nav list and Contact button */
 }
 
 /* Nav links list */
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 22px; /* Tight gap between individual nav items */
+    gap: 16px; /* Tight gap between individual nav items */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -273,7 +275,7 @@ img {
 .nav-links li a {
     color: var(--primary-color);
     font-weight: 600;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     text-transform: capitalize;
     position: relative;
     padding: 4px 0;
@@ -1136,13 +1138,16 @@ h1 { font-size: clamp(28px, 6vw, 56px); }
 h2 { font-size: clamp(24px, 5vw, 40px); }
 h3 { font-size: clamp(20px, 4vw, 24px); }
 
-/* ---- 1200px: tighten desktop nav slightly ---- */
-@media (max-width: 1200px) {
-    .logo-text      { font-size: 1.6rem; }
-    .logo-tagline   { font-size: 0.78rem; }
-    .logo-img       { height: 56px; }
-    .nav-links      { gap: 16px; }
-    .nav-links li a { font-size: 0.84rem; }
+/* ---- 1280px: tighten desktop nav significantly to prevent merging ---- */
+@media (max-width: 1280px) {
+    .nav-container  { max-width: 100%; padding: 10px 20px; }
+    .logo-text      { font-size: 1.45rem; }
+    .logo-tagline   { font-size: 0.7rem; }
+    .logo-img       { height: 50px; }
+    .nav-right      { gap: 16px; }
+    .nav-links      { gap: 10px; }
+    .nav-links li a { font-size: 0.78rem; }
+    .nav-contact-desktop { padding: 6px 14px; font-size: 0.8rem; }
 }
 
 /* ---- 900px: hamburger breakpoint ---- */
