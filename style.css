@@ -359,7 +359,7 @@ img {
     position: relative;
     height: 100vh;
     min-height: 600px;
-    background: url('assets/hero-ship.jpg') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     display: flex;
     align-items: center;
     padding-top: 85px; /* Offset for single-row navbar */
