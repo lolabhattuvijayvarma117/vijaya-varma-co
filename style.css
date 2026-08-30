@@ -1138,16 +1138,29 @@ h1 { font-size: clamp(28px, 6vw, 56px); }
 h2 { font-size: clamp(24px, 5vw, 40px); }
 h3 { font-size: clamp(20px, 4vw, 24px); }
 
-/* ---- 1280px: tighten desktop nav significantly to prevent merging ---- */
+/* ---- 1280px: tighten desktop nav to prevent merging ---- */
 @media (max-width: 1280px) {
     .nav-container  { max-width: 100%; padding: 10px 20px; }
-    .logo-text      { font-size: 1.45rem; }
+    .logo-text      { font-size: 1.35rem; }
     .logo-tagline   { font-size: 0.7rem; }
-    .logo-img       { height: 50px; }
+    .logo-img       { height: 48px; }
     .nav-right      { gap: 16px; }
-    .nav-links      { gap: 10px; }
-    .nav-links li a { font-size: 0.78rem; }
+    .nav-links      { gap: 12px; }
+    .nav-links li a { font-size: 0.8rem; }
     .nav-contact-desktop { padding: 6px 14px; font-size: 0.8rem; }
+}
+
+/* ---- 1080px: aggressively shrink for narrow desktops before hamburger ---- */
+@media (max-width: 1080px) {
+    .logo-text      { font-size: 1.1rem; }
+    .logo-tagline   { font-size: 0.6rem; }
+    .logo-img       { height: 40px; }
+    .nav-right      { gap: 10px; }
+    .nav-links      { gap: 8px; }
+    .nav-links li a { font-size: 0.7rem; }
+    .nav-contact-desktop { padding: 4px 10px; font-size: 0.75rem; }
+    .logo-text-wrapper { padding-left: 8px; gap: 1px; }
+    .logo-link      { gap: 8px; }
 }
 
 /* ---- 900px: hamburger breakpoint ---- */
