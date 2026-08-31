@@ -120,15 +120,22 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = 'Sending...';
             responseDiv.style.display = 'none';
 
+            // Inject Web3Forms Access Key
+            data.access_key = "017537e2-67fa-4ba2-86b9-fc1db083e23c";
+            // Set subject line for email
+            data.subject = "New Contact Form Submission from " + (data.name || "Website");
+            // Set from name
+            data.from_name = "Vijaya Varma & Co Website";
+
             try {
-                const res = await fetch('/api/contact', {
+                const res = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify(data)
                 });
                 const result = await res.json();
 
-                if (result.success) {
+                if (res.status === 200) {
                 responseDiv.style.background = '#d4edda';
                 responseDiv.style.color = '#155724';
                 responseDiv.style.border = '1px solid #c3e6cb';
@@ -138,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 responseDiv.style.background = '#f8d7da';
                 responseDiv.style.color = '#721c24';
                 responseDiv.style.border = '1px solid #f5c6cb';
-                responseDiv.textContent = '❌ ' + result.error;
+                responseDiv.textContent = '❌ ' + (result.message || 'Something went wrong');
                 }
             } catch (err) {
                 responseDiv.style.background = '#f8d7da';
