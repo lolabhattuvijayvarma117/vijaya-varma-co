@@ -866,15 +866,6 @@ img {
     font-size: 1.1rem;
 }
 
-.wo-status {
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    background-color: rgba(0, 123, 255, 0.2);
-    color: #8ab4f8;
-    border-radius: 50px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
 
 .wo-body {
     padding: 20px;
