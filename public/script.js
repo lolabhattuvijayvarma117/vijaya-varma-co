@@ -126,6 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
             data.subject = "New Contact Form Submission from " + (data.name || "Website");
             // Set from name
             data.from_name = "Vijaya Varma & Co Website";
+            
+            // Set auto-reply to the customer
+            data.autoresponse = "Thank you for contacting Vijaya Varma & Co.\n\nWe have received your message and our team will get back to you shortly.\n\nBest regards,\nVijaya Varma & Co.";
 
             try {
                 const res = await fetch('https://api.web3forms.com/submit', {
