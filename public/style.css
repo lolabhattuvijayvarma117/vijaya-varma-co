@@ -204,9 +204,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 15px; /* generous padding like reference */
-    width: 100%;
-    max-width: 100%;
+    padding: 12px 15px;
 }
 
 /* ---- Left Zone: Brand ---- */
