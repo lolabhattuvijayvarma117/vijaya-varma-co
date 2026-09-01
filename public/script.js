@@ -106,6 +106,22 @@ document.addEventListener('DOMContentLoaded', () => {
     leftElements.forEach(el => appearOnScroll.observe(el));
     rightElements.forEach(el => appearOnScroll.observe(el));
 
+    // 4b. Service Card Expand/Collapse Toggle
+    const serviceItems = document.querySelectorAll('.service-item[role="button"]');
+    serviceItems.forEach(item => {
+        function toggle() {
+            const isOpen = item.classList.toggle('open');
+            item.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+        item.addEventListener('click', toggle);
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+            }
+        });
+    });
+
     // 5. Form Submission (Send to Backend)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
