@@ -106,18 +106,25 @@ document.addEventListener('DOMContentLoaded', () => {
     leftElements.forEach(el => appearOnScroll.observe(el));
     rightElements.forEach(el => appearOnScroll.observe(el));
 
-    // 4b. Service Card Expand/Collapse Toggle
-    const serviceItems = document.querySelectorAll('.service-item[role="button"]');
-    serviceItems.forEach(item => {
-        function toggle() {
-            const isOpen = item.classList.toggle('open');
-            item.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        }
-        item.addEventListener('click', toggle);
-        item.addEventListener('keydown', (e) => {
+    // 4b. Service Card Touch Toggle (for mobile — hover doesn't exist)
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Only use touch-toggle behavior on touch devices
+            if (!window.matchMedia('(hover: hover)').matches) {
+                const wasActive = card.classList.contains('touch-active');
+                // Close all others
+                serviceCards.forEach(c => c.classList.remove('touch-active'));
+                // Toggle this one
+                if (!wasActive) card.classList.add('touch-active');
+            }
+        });
+        card.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                toggle();
+                const wasActive = card.classList.contains('touch-active');
+                serviceCards.forEach(c => c.classList.remove('touch-active'));
+                if (!wasActive) card.classList.add('touch-active');
             }
         });
     });

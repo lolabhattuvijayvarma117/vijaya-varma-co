@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+  <rect width="600" height="400" fill="#1a3a5c"/>
+  <text x="300" y="180" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="18" font-family="Arial, sans-serif">Replace with photo</text>
+  <text x="300" y="220" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="22" font-family="Arial, sans-serif" font-weight="bold">Dry Cargo Surveys</text>
+</svg>
