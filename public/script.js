@@ -295,4 +295,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    // ==========================================
+    // WORK ORDERS FILTER & EXPAND
+    // ==========================================
+    const filterBtns = document.querySelectorAll('.wo-filter-btn');
+    const woCards = document.querySelectorAll('.wo-card');
+
+    // Filtering logic
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            woCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                // Reset display before animating
+                card.style.display = 'block';
+                card.style.position = 'relative';
+
+                if (filterValue === 'all' || filterValue === category) {
+                    card.classList.remove('fade-out');
+                    setTimeout(() => {
+                        card.style.position = 'relative';
+                    }, 300);
+                } else {
+                    card.classList.add('fade-out');
+                    // Wait for animation to finish before removing from layout
+                    setTimeout(() => {
+                        if (card.classList.contains('fade-out')) {
+                            card.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+        });
+        
+        // Accessibility
+        btn.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                btn.click();
+            }
+        });
+    });
+
+    // Expand/Collapse logic
+    const expandBtns = document.querySelectorAll('.wo-expand-btn');
+    
+    expandBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const card = this.closest('.wo-card');
+            const fullScope = card.querySelector('.wo-full-scope');
+            const isExpanded = card.classList.contains('expanded');
+            
+            if (isExpanded) {
+                // Collapse
+                fullScope.style.display = 'none';
+                card.classList.remove('expanded');
+                this.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
+            } else {
+                // Expand
+                fullScope.style.display = 'block';
+                card.classList.add('expanded');
+                this.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
+            }
+        });
+    });
+
 });
