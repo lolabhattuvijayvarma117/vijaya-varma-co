@@ -350,178 +350,58 @@
     </section>
 
     <!-- CLIENTS SECTION -->
-
-    <!-- CLIENTS SECTION -->
-    <section id="clients" class="section bg-light">
-        <div class="container text-center">
-            <div class="section-title">
+    <section id="clients" class="section">
+        <div class="container">
+            <div class="section-title text-center">
                 <span class="subtitle">Trusted By</span>
-                <h2>Our Clients</h2>
+                <h2>Our Esteemed Clients</h2>
+                <p>We take pride in our long-standing relationships with industry leaders.</p>
             </div>
             
-            <div class="dock-container">
-                <div class="dock-wrapper" id="dock">
-
-                    <div class="dock-item fade-in" data-name="IFFCO" data-scope="Survey & supervision of vessel discharge operations, wharf supervision, fertiliser bagging supervision at Karaikal & Kamarajar ports.">
-                        <img src="assets/clients/iffco.png" alt="IFFCO Logo">
-                        <div class="dock-tooltip">
-                            <strong>IFFCO</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="KRIBHCO" data-scope="Inspection & supervision of fertiliser bagging/dispatch at Krishnapatnam Port; quantity and quality checks of filled bags; wagon/truck cleanliness verification before loading.">
-                        <img src="assets/clients/kribhco.png" alt="KRIBHCO Logo">
-                        <div class="dock-tooltip">
-                            <strong>KRIBHCO</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Chettinad Cement" data-scope="Rake stock audit across all Chettinad Cement rail-handling destinations nationwide.">
-                        <img src="assets/clients/chettinad.png" alt="Chettinad Cement Logo">
-                        <div class="dock-tooltip">
-                            <strong>Chettinad Cement</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="CONCOR" data-scope="Container terminal operations support at DCT/Okhla.">
-                        <img src="assets/clients/concor.svg" alt="CONCOR Logo">
-                        <div class="dock-tooltip">
-                            <strong>CONCOR</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Gangavaram Port" data-scope="Destination survey of fertiliser cargo.">
-                        <img src="assets/clients/gangavaram.svg" alt="Gangavaram Port Logo">
-                        <div class="dock-tooltip">
-                            <strong>Gangavaram Port</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="KPCL" data-scope="Inspection & supervision of fertiliser bagging and dispatch operations.">
-                        <img src="assets/clients/krishnapatnam.svg" alt="KPCL Logo">
-                        <div class="dock-tooltip">
-                            <strong>KPCL</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Paradeep Phosphates" data-scope="Fertiliser supply logistics and documentation support.">
-                        <img src="assets/clients/paradeep.png" alt="Paradeep Phosphates Logo">
-                        <div class="dock-tooltip">
-                            <strong>Paradeep Phosphates</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Bothra Shipping" data-scope="Supervision of fertiliser handling and dispatch at Visakhapatnam Port and destination points; damaged/discolored bag segregation.">
-                        <img src="assets/clients/bothra.png" alt="Bothra Shipping Logo">
-                        <div class="dock-tooltip">
-                            <strong>Bothra Shipping</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Sarat Chatterjee & Co." data-scope="Stevedoring-linked supervision work on behalf of Zuari Agro Chemicals.">
-                        <img src="assets/clients/sarat.svg" alt="Sarat Chatterjee & Co. Logo">
-                        <div class="dock-tooltip">
-                            <strong>Sarat Chatterjee & Co.</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="SICPL" data-scope="Truck body inspection, delivery-order verification, bag counting and tallying.">
-                        <img src="assets/clients/sicpl.svg" alt="SICPL Logo">
-                        <div class="dock-tooltip">
-                            <strong>SICPL</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Shyam Metalics" data-scope="Contracted work order on file.">
-                        <img src="assets/clients/shyam.png" alt="Shyam Metalics Logo">
-                        <div class="dock-tooltip">
-                            <strong>Shyam Metalics</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Indian Potash Limited" data-scope="Principal client for fertiliser rake loading operations coordinated via Gangireddy Shipping and V. Dhana Reddy & Co.">
-                        <img src="assets/clients/indianpotash.jpg" alt="Indian Potash Limited Logo">
-                        <div class="dock-tooltip">
-                            <strong>Indian Potash Limited</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Zuari Agro Chemicals" data-scope="Fertiliser consignment supervision at Visakhapatnam Port via Bothra Shipping Services.">
-                        <img src="assets/clients/zuari.png" alt="Zuari Agro Chemicals Logo">
-                        <div class="dock-tooltip">
-                            <strong>Zuari Agro Chemicals</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Chambal Fertilisers" data-scope="Fertiliser consignment supervision at Visakhapatnam Port via Bothra Shipping Services.">
-                        <img src="assets/clients/chambal.svg" alt="Chambal Fertilisers Logo">
-                        <div class="dock-tooltip">
-                            <strong>Chambal Fertilisers</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="MCFL" data-scope="Fertiliser consignment supervision via Bothra Shipping Services.">
-                        <img src="assets/clients/mcfl.svg" alt="MCFL Logo">
-                        <div class="dock-tooltip">
-                            <strong>MCFL</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="KFCL" data-scope="Supervision of DAP/MOP and other fertiliser bagging and dispatch operations at ports.">
-                        <img src="assets/clients/kfcl.svg" alt="KFCL Logo">
-                        <div class="dock-tooltip">
-                            <strong>KFCL</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Nellore Warehousing" data-scope="Fertiliser warehousing supervision at Krishnapatnam.">
-                        <img src="assets/clients/nellore.svg" alt="Nellore Warehousing Logo">
-                        <div class="dock-tooltip">
-                            <strong>Nellore Warehousing</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="Gangireddy Shipping" data-scope="Coordination of fertiliser rake loading on behalf of Indian Potash Limited.">
-                        <img src="assets/clients/gangireddy.svg" alt="Gangireddy Shipping Logo">
-                        <div class="dock-tooltip">
-                            <strong>Gangireddy Shipping</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="V. Dhana Reddy & Co" data-scope="Vessel arrival coordination and loading supervision on behalf of Indian Potash Limited / KRIBHCO.">
-                        <img src="assets/clients/vdhana.svg" alt="V. Dhana Reddy & Co Logo">
-                        <div class="dock-tooltip">
-                            <strong>V. Dhana Reddy & Co</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="IST Pvt. Ltd." data-scope="Third-party supervision of imported fertiliser cargo at Kakinada Port on behalf of IPL, Zuari, Chambal, and Paradeep Phosphates.">
-                        <img src="assets/clients/ist.svg" alt="IST Pvt. Ltd. Logo">
-                        <div class="dock-tooltip">
-                            <strong>IST Pvt. Ltd.</strong>
-                            <span>Click for verified scope</span>
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="UltraTech Cement" data-scope="No additional details verified on file.">
-                        <img src="assets/clients/ultratech.png" alt="UltraTech Cement Logo">
-                        <div class="dock-tooltip">
-                            <strong>UltraTech Cement</strong>
-                            
-                        </div>
-                    </div>
-                    <div class="dock-item fade-in" data-name="San Maritime" data-scope="No additional details verified on file.">
-                        <img src="assets/clients/sanmaritime.svg" alt="San Maritime Logo">
-                        <div class="dock-tooltip">
-                            <strong>San Maritime</strong>
-                            
-                        </div>
-                    </div>
+            <div class="clients-grid">
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/iffco.png" alt="IFFCO Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>IFFCO</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/indianpotash.jpg" alt="Indian Potash Limited Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>Indian Potash Limited</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/kribhco.png" alt="KRIBHCO Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>KRIBHCO</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/chambal.svg" alt="Chambal Fertilizers Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>Chambal Fertilizers</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/zuari.png" alt="Zuari Agro Chemicals Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>Zuari Agro Chemicals</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/paradeep.png" alt="Paradeep Phosphates Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>Paradeep Phosphates</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/shyam.png" alt="Shyam Metallics Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>Shyam Metallics</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/bothra.png" alt="Bothra Shipping Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>Bothra Shipping</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/chettinad.png" alt="Chettinad Cement Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>Chettinad Cement</span>
+                </div>
+                <div class="client-logo fade-in">
+                    <img src="assets/clients/ultratech.png" alt="UltraTech Cement Logo" style="max-width: 100px; max-height: 50px; margin-right: 15px; border-radius: 4px; object-fit: contain;" >
+                    <span>UltraTech Cement</span>
                 </div>
             </div>
-            <p class="dock-hint"><i class="fas fa-arrows-alt-h"></i> Hover or scroll to explore our network of trusted partners.</p>
         </div>
     </section>
-
 
     <!-- WORK ORDERS SECTION -->
     <section id="work-orders" class="section bg-dark text-white">
@@ -532,192 +412,49 @@
                 <p style="margin-top: 15px; color: rgba(255,255,255,0.8); max-width: 800px; margin-inline: auto; font-size: 1.05rem;">At Vijaya Varma &amp; Co, every assignment is treated as a major project. We bring the same rigorous oversight, precision, and dedication to all our operations across the country.</p>
             </div>
             
-            <div class="wo-grid">
-
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>IFFCO</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Survey & supervision of vessel discharge operations, wharf supervision, fertiliser bagging supervision at Karaikal & Kamarajar ports.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="IFFCO" data-scope="Survey & supervision of vessel discharge operations, wharf supervision, fertiliser bagging supervision at Karaikal & Kamarajar ports.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>KRIBHCO</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Inspection & supervision of fertiliser bagging/dispatch at Krishnapatnam Port; quantity and quality checks of filled bags; wagon/truck cleanliness verification before loading.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="KRIBHCO" data-scope="Inspection & supervision of fertiliser bagging/dispatch at Krishnapatnam Port; quantity and quality checks of filled bags; wagon/truck cleanliness verification before loading.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
+            <div class="work-orders-carousel">
+                <div class="wo-card">
                     <div class="wo-header">
                         <h4>Chettinad Cement</h4>
                     </div>
                     <div class="wo-body">
-                        <p class="wo-scope">Rake stock audit across all Chettinad Cement rail-handling destinations nationwide.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Chettinad Cement" data-scope="Rake stock audit across all Chettinad Cement rail-handling destinations nationwide.">View Details</button>
+                        <p><strong>Scope:</strong> Cargo Supervision & Analysis</p>
+                        <p><strong>Details:</strong> Bag counting, continuous supervision throughout operations.</p>
                     </div>
                 </div>
-                <div class="wo-card fade-in">
+                
+                <div class="wo-card">
                     <div class="wo-header">
-                        <h4>CONCOR</h4>
+                        <h4>UltraTech Cement</h4>
                     </div>
                     <div class="wo-body">
-                        <p class="wo-scope">Container terminal operations support at DCT/Okhla.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="CONCOR" data-scope="Container terminal operations support at DCT/Okhla.">View Details</button>
+                        <p><strong>Scope:</strong> Quality & Quantity Verification</p>
+                        <p><strong>Details:</strong> Comprehensive daily reporting and quality testing.</p>
                     </div>
                 </div>
-                <div class="wo-card fade-in">
+
+                <div class="wo-card">
                     <div class="wo-header">
                         <h4>Gangavaram Port</h4>
                     </div>
                     <div class="wo-body">
-                        <p class="wo-scope">Destination survey of fertiliser cargo.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Gangavaram Port" data-scope="Destination survey of fertiliser cargo.">View Details</button>
+                        <p><strong>Scope:</strong> Bulk Cargo Operations</p>
+                        <p><strong>Details:</strong> Discharge supervision, draft surveys, and lab analysis.</p>
                     </div>
                 </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>KPCL</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Inspection & supervision of fertiliser bagging and dispatch operations.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="KPCL" data-scope="Inspection & supervision of fertiliser bagging and dispatch operations.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>Paradeep Phosphates</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Fertiliser supply logistics and documentation support.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Paradeep Phosphates" data-scope="Fertiliser supply logistics and documentation support.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
+
+                <div class="wo-card">
                     <div class="wo-header">
                         <h4>Bothra Shipping</h4>
                     </div>
                     <div class="wo-body">
-                        <p class="wo-scope">Supervision of fertiliser handling and dispatch at Visakhapatnam Port and destination points; damaged/discolored bag segregation.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Bothra Shipping" data-scope="Supervision of fertiliser handling and dispatch at Visakhapatnam Port and destination points; damaged/discolored bag segregation.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>Sarat Chatterjee & Co.</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Stevedoring-linked supervision work on behalf of Zuari Agro Chemicals.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Sarat Chatterjee & Co." data-scope="Stevedoring-linked supervision work on behalf of Zuari Agro Chemicals.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>SICPL</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Truck body inspection, delivery-order verification, bag counting and tallying.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="SICPL" data-scope="Truck body inspection, delivery-order verification, bag counting and tallying.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>Shyam Metalics</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Contracted work order on file.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Shyam Metalics" data-scope="Contracted work order on file.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>Indian Potash Limited</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Principal client for fertiliser rake loading operations coordinated via Gangireddy Shipping and V. Dhana Reddy & Co.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Indian Potash Limited" data-scope="Principal client for fertiliser rake loading operations coordinated via Gangireddy Shipping and V. Dhana Reddy & Co.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>Zuari Agro Chemicals</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Fertiliser consignment supervision at Visakhapatnam Port via Bothra Shipping Services.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Zuari Agro Chemicals" data-scope="Fertiliser consignment supervision at Visakhapatnam Port via Bothra Shipping Services.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>Chambal Fertilisers</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Fertiliser consignment supervision at Visakhapatnam Port via Bothra Shipping Services.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Chambal Fertilisers" data-scope="Fertiliser consignment supervision at Visakhapatnam Port via Bothra Shipping Services.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>MCFL</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Fertiliser consignment supervision via Bothra Shipping Services.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="MCFL" data-scope="Fertiliser consignment supervision via Bothra Shipping Services.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>KFCL</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Supervision of DAP/MOP and other fertiliser bagging and dispatch operations at ports.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="KFCL" data-scope="Supervision of DAP/MOP and other fertiliser bagging and dispatch operations at ports.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>Nellore Warehousing</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Fertiliser warehousing supervision at Krishnapatnam.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Nellore Warehousing" data-scope="Fertiliser warehousing supervision at Krishnapatnam.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>Gangireddy Shipping</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Coordination of fertiliser rake loading on behalf of Indian Potash Limited.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="Gangireddy Shipping" data-scope="Coordination of fertiliser rake loading on behalf of Indian Potash Limited.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>V. Dhana Reddy & Co</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Vessel arrival coordination and loading supervision on behalf of Indian Potash Limited / KRIBHCO.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="V. Dhana Reddy & Co" data-scope="Vessel arrival coordination and loading supervision on behalf of Indian Potash Limited / KRIBHCO.">View Details</button>
-                    </div>
-                </div>
-                <div class="wo-card fade-in">
-                    <div class="wo-header">
-                        <h4>IST Pvt. Ltd.</h4>
-                    </div>
-                    <div class="wo-body">
-                        <p class="wo-scope">Third-party supervision of imported fertiliser cargo at Kakinada Port on behalf of IPL, Zuari, Chambal, and Paradeep Phosphates.</p>
-                        <button class="btn btn-sm btn-outline-light wo-btn" data-name="IST Pvt. Ltd." data-scope="Third-party supervision of imported fertiliser cargo at Kakinada Port on behalf of IPL, Zuari, Chambal, and Paradeep Phosphates.">View Details</button>
+                        <p><strong>Scope:</strong> Loading Supervision</p>
+                        <p><strong>Details:</strong> Wagon inspection and weight/volume assessments.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- PORTS SECTION -->
     <section id="ports" class="section">
@@ -726,44 +463,37 @@
                 <span class="subtitle">Our Reach</span>
                 <h2>Nationwide Operations</h2>
                 <p style="margin-top: 15px; color: var(--text-light); max-width: 800px; margin-inline: auto; font-size: 1.05rem;">
-                    We operate dynamically across major and minor ports throughout India. Our established reach includes strategic hubs, enabling rapid mobilization upon contract confirmation.
+                    We operate dynamically across all major and minor ports throughout India. Upon tender confirmation and contract award, our teams mobilize nationwide to deliver uncompromised survey and inspection services.
                 </p>
             </div>
             
             <div class="ports-map-container">
-                <div class="ports-grid ports-grid-3">
+                <div class="ports-grid">
                     <div class="port-card fade-in">
-                        <i class="fas fa-ship"></i>
-                        <h3>Paradeep Port</h3>
-                        <p>Verified Branch Operations</p>
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Pan-India Presence</h3>
+                        <p>Mobilization to any Indian port upon contract confirmation</p>
                     </div>
                     <div class="port-card fade-in" style="animation-delay: 0.1s;">
-                        <i class="fas fa-ship"></i>
-                        <h3>Gandhidham</h3>
-                        <p>Verified Branch Operations</p>
+                        <i class="fas fa-building"></i>
+                        <h3>Kakinada</h3>
+                        <p>Head Office & Primary Operations</p>
                     </div>
                     <div class="port-card fade-in" style="animation-delay: 0.2s;">
-                        <i class="fas fa-ship"></i>
-                        <h3>Krishnapatnam Port</h3>
-                        <p>Verified Survey &amp; Supervision Hub</p>
+                        <i class="fas fa-flask"></i>
+                        <h3>Visakhapatnam</h3>
+                        <p>Branch Office & Chemical Laboratory</p>
+                    </div>
+                    <div class="port-card fade-in" style="animation-delay: 0.3s;">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Strategic Branches</h3>
+                        <p>Established presence in Paradeep, Gandhidham, and more</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- SHARED MODAL -->
-    <div id="details-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
-            <h3 id="modal-title">Client Name</h3>
-            <div class="modal-body">
-                <p><strong>Verified Scope of Work:</strong></p>
-                <p id="modal-scope">Details go here.</p>
-            </div>
-        </div>
-    </div>
     <!-- CONTACT SECTION -->
     <section id="contact" class="section bg-light">
         <div class="container">
