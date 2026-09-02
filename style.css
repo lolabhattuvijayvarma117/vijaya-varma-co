@@ -1521,3 +1521,179 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     overflow: hidden;
     text-overflow: ellipsis;
 }
+/* =========================================================================
+   WORK ORDERS SECTION (REDESIGNED)
+   ========================================================================= */
+.wo-stats-strip {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+}
+
+.wo-stat i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.wo-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.wo-filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--bg-white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.wo-filter-btn:hover,
+.wo-filter-btn:focus,
+.wo-filter-btn.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--bg-white);
+    outline: none;
+}
+
+.wo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.wo-card {
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.wo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.wo-card-inner {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wo-card-header h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.wo-category-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background-color: rgba(11, 32, 56, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.wo-category-badge i {
+    margin-right: 4px;
+}
+
+.wo-card-body {
+    flex-grow: 1;
+    margin-bottom: 20px;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.wo-teaser {
+    margin: 0;
+}
+
+.wo-full-scope {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.wo-card-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+.wo-expand-btn {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+.wo-expand-btn:hover {
+    color: var(--primary-color);
+}
+
+.wo-expand-btn i {
+    transition: transform 0.3s ease;
+}
+
+.wo-card.expanded .wo-expand-btn i {
+    transform: rotate(180deg);
+}
+
+/* Animations */
+.wo-card.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    position: absolute; /* Remove from flow while hidden */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .wo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .wo-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wo-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .wo-filter-btn {
+        flex-shrink: 0;
+    }
+}
