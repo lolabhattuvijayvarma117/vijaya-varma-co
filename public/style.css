@@ -1520,3 +1520,28 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* =========================================================================
+   CONTACT FORM LAYOUT GRID
+   ========================================================================= */
+.form-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-left-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-right-col {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .form-layout-grid {
+        grid-template-columns: 1fr;
+    }
+}
