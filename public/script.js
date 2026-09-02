@@ -186,4 +186,130 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================
+    // MODAL LOGIC (Shared for Clients & Work Orders)
+    // ==========================================
+    const modal = document.getElementById('details-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalTitle = document.getElementById('modal-title');
+    const modalScope = document.getElementById('modal-scope');
+    
+    function openModal(title, scope) {
+        if (!modal) return;
+        modalTitle.textContent = title;
+        modalScope.innerHTML = scope || "No additional details verified on file.";
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // prevent background scrolling
+    }
+    
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    
+    // Wire up Work Order buttons
+    document.querySelectorAll('.wo-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            openModal(btn.getAttribute('data-name'), btn.getAttribute('data-scope'));
+        });
+    });
+    
+    // ==========================================
+    // CLIENTS DOCK MAGNIFICATION EFFECT
+    // ==========================================
+    const dock = document.getElementById('dock');
+    const dockItems = document.querySelectorAll('.dock-item');
+    
+    // Scale configuration
+    const maxScale = 1.5;
+    const baseScale = 1.0;
+    const effectRadius = 250; // pixels
+    
+    if (dock) {
+        dock.addEventListener('mousemove', (e) => {
+            // Only apply on non-touch devices
+            if (window.matchMedia('(pointer: coarse)').matches) return;
+            
+            dockItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const itemCenterX = rect.left + rect.width / 2;
+                
+                // Distance from mouse to center of this item
+                const dist = Math.abs(e.clientX - itemCenterX);
+                
+                // Calculate scale
+                let scale = baseScale;
+                if (dist < effectRadius) {
+                    // Exponential falloff
+                    const factor = 1 - (dist / effectRadius);
+                    scale = baseScale + (maxScale - baseScale) * factor;
+                }
+                
+                item.style.transform = `scale(${scale})`;
+            });
+        });
+        
+        dock.addEventListener('mouseleave', () => {
+            // Reset all items
+            dockItems.forEach(item => {
+                item.style.transform = `scale(${baseScale})`;
+            });
+        });
+        
+        // Horizontal Scroll with Mouse Wheel
+        dock.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                dock.scrollLeft += e.deltaY;
+            }
+        });
+        
+        // Drag to scroll
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        dock.addEventListener('mousedown', (e) => {
+            isDown = true;
+            dock.style.cursor = 'grabbing';
+            startX = e.pageX - dock.offsetLeft;
+            scrollLeft = dock.scrollLeft;
+        });
+        
+        dock.addEventListener('mouseleave', () => {
+            isDown = false;
+            dock.style.cursor = 'default';
+        });
+        
+        dock.addEventListener('mouseup', () => {
+            isDown = false;
+            dock.style.cursor = 'default';
+        });
+        
+        dock.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - dock.offsetLeft;
+            const walk = (x - startX) * 2; // scroll-fast
+            dock.scrollLeft = scrollLeft - walk;
+        });
+    }
+    
+    // Wire up Clients clicks to open Modal
+    dockItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Prevent if dragging
+            
+            const name = item.getAttribute('data-name');
+            const scope = item.getAttribute('data-scope');
+            openModal(name, scope);
+        });
+    });
+
 });
