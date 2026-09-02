@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/assets/img/favicon/favicon.jpg"
+    />
+    <title>CONCOR</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-83M9JR6R9H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'G-83M9JR6R9H');
+    </script>
+    <script type="module" crossorigin src="/assets/index-JzGw6JU6.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BA_RCG_t.css">
+  </head>
+
+  <body>
+    <!-- Loader -->
+    <div class="apiLoader" id="apiLoader"></div>
+    <div class="loading" id="loader">
+      <div class="loading-wheel"></div>
+    </div>
+
+    <!-- React App -->
+    <div id="root"></div>
+
+    <!-- Main Script -->
+
+    <!-- Footer Load Data (If required) -->
+    <div id="footer_load_data"></div>
+  </body>
+</html>

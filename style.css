@@ -1471,3 +1471,52 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     margin-top: 15px;
 }
 
+
+/* =========================================================================
+   CLIENTS CAROUSEL
+   ========================================================================= */
+.clients-carousel-container {
+    width: 100%;
+    overflow-x: hidden;
+    padding: 20px 0;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.clients-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    will-change: transform;
+    /* transition: transform 0.1s linear; */
+}
+
+.client-logo {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 20px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+    width: 280px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s, box-shadow 0.3s;
+}
+
+.client-logo:hover, .client-logo:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+.client-logo span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
