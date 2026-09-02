@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // MODAL LOGIC (Shared for Clients & Work Orders)
+    // MODAL LOGIC
     // ==========================================
     const modal = document.getElementById('details-modal');
     const modalClose = document.getElementById('modal-close');
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.textContent = title;
         modalScope.innerHTML = scope || "No additional details verified on file.";
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // prevent background scrolling
+        document.body.style.overflow = 'hidden';
     }
     
     function closeModal() {
@@ -213,103 +213,86 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === modal) closeModal();
     });
     
-    // Wire up Work Order buttons
     document.querySelectorAll('.wo-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             openModal(btn.getAttribute('data-name'), btn.getAttribute('data-scope'));
         });
     });
-    
+
     // ==========================================
-    // CLIENTS DOCK MAGNIFICATION EFFECT
+    // CLIENTS CAROUSEL (Auto-scroll & Drag)
     // ==========================================
-    const dock = document.getElementById('dock');
-    const dockItems = document.querySelectorAll('.dock-item');
+    const carousel = document.getElementById('clients-carousel');
+    const track = document.getElementById('clients-track');
     
-    // Scale configuration
-    const maxScale = 1.5;
-    const baseScale = 1.0;
-    const effectRadius = 250; // pixels
-    
-    if (dock) {
-        dock.addEventListener('mousemove', (e) => {
-            // Only apply on non-touch devices
-            if (window.matchMedia('(pointer: coarse)').matches) return;
-            
-            dockItems.forEach(item => {
-                const rect = item.getBoundingClientRect();
-                const itemCenterX = rect.left + rect.width / 2;
-                
-                // Distance from mouse to center of this item
-                const dist = Math.abs(e.clientX - itemCenterX);
-                
-                // Calculate scale
-                let scale = baseScale;
-                if (dist < effectRadius) {
-                    // Exponential falloff
-                    const factor = 1 - (dist / effectRadius);
-                    scale = baseScale + (maxScale - baseScale) * factor;
-                }
-                
-                item.style.transform = `scale(${scale})`;
-            });
-        });
-        
-        dock.addEventListener('mouseleave', () => {
-            // Reset all items
-            dockItems.forEach(item => {
-                item.style.transform = `scale(${baseScale})`;
-            });
-        });
-        
-        // Horizontal Scroll with Mouse Wheel
-        dock.addEventListener('wheel', (e) => {
-            if (e.deltaY !== 0) {
-                e.preventDefault();
-                dock.scrollLeft += e.deltaY;
-            }
-        });
-        
-        // Drag to scroll
+    if (carousel && track) {
         let isDown = false;
         let startX;
         let scrollLeft;
+        let scrollPos = 0;
+        let isHovered = false;
+        let animationId;
         
-        dock.addEventListener('mousedown', (e) => {
+        // Auto-scroll speed
+        const speed = 1;
+        
+        // Clone items for seamless loop if needed
+        // (We already duplicated them in HTML, so we just reset scroll when half is reached)
+        
+        function scrollLoop() {
+            if (!isDown && !isHovered) {
+                scrollPos += speed;
+                
+                // If scrolled past the first set of items (which is half the scrollable width)
+                // We reset to 0 seamlessly.
+                const halfWidth = track.scrollWidth / 2;
+                if (scrollPos >= halfWidth) {
+                    scrollPos = 0;
+                }
+                carousel.scrollLeft = scrollPos;
+            }
+            animationId = requestAnimationFrame(scrollLoop);
+        }
+        
+        // Start loop
+        animationId = requestAnimationFrame(scrollLoop);
+        
+        // Mouse/Touch events for pausing
+        carousel.addEventListener('mouseenter', () => isHovered = true);
+        carousel.addEventListener('mouseleave', () => {
+            isHovered = false;
+            isDown = false;
+        });
+        carousel.addEventListener('touchstart', () => isHovered = true);
+        carousel.addEventListener('touchend', () => {
+            isHovered = false;
+            isDown = false;
+        });
+        
+        // Drag logic
+        carousel.addEventListener('mousedown', (e) => {
             isDown = true;
-            dock.style.cursor = 'grabbing';
-            startX = e.pageX - dock.offsetLeft;
-            scrollLeft = dock.scrollLeft;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
         });
         
-        dock.addEventListener('mouseleave', () => {
-            isDown = false;
-            dock.style.cursor = 'default';
-        });
-        
-        dock.addEventListener('mouseup', () => {
-            isDown = false;
-            dock.style.cursor = 'default';
-        });
-        
-        dock.addEventListener('mousemove', (e) => {
+        carousel.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
-            const x = e.pageX - dock.offsetLeft;
-            const walk = (x - startX) * 2; // scroll-fast
-            dock.scrollLeft = scrollLeft - walk;
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2;
+            carousel.scrollLeft = scrollLeft - walk;
+            scrollPos = carousel.scrollLeft;
+        });
+        
+        // Wheel logic
+        carousel.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0 || e.deltaX !== 0) {
+                e.preventDefault();
+                carousel.scrollLeft += (e.deltaY || e.deltaX);
+                scrollPos = carousel.scrollLeft;
+            }
         });
     }
-    
-    // Wire up Clients clicks to open Modal
-    dockItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            // Prevent if dragging
-            
-            const name = item.getAttribute('data-name');
-            const scope = item.getAttribute('data-scope');
-            openModal(name, scope);
-        });
-    });
 
 });
