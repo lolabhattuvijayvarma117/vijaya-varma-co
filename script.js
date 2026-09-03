@@ -358,11 +358,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Collapse
                 fullScope.style.display = 'none';
                 card.classList.remove('expanded');
+                this.setAttribute('aria-expanded', 'false');
                 this.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
             } else {
                 // Expand
                 fullScope.style.display = 'block';
                 card.classList.add('expanded');
+                this.setAttribute('aria-expanded', 'true');
                 this.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
             }
         });

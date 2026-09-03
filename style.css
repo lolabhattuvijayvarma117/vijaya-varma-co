@@ -1697,3 +1697,71 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
         flex-shrink: 0;
     }
 }
+/* =========================================================================
+   WORK ORDERS EXPANDED DETAILS
+   ========================================================================= */
+.wo-full-scope {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(11, 32, 56, 0.15);
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.wo-pill-container {
+    margin-bottom: 12px;
+}
+
+.wo-detail-pill {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 8px;
+    margin-bottom: 5px;
+}
+
+.wo-detail-pill i {
+    margin-right: 4px;
+}
+
+.loc-pill {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+}
+
+.role-pill {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    border: 1px solid var(--primary-color);
+}
+
+.wo-activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wo-activity-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.wo-activity-list li i {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+}
+
