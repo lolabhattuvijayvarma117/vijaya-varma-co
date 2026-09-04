@@ -297,26 +297,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================
-    // WORK ORDERS FILTER & EXPAND
+    // BENTO GRID FILTER & EXPAND
     // ==========================================
-    const filterBtns = document.querySelectorAll('.wo-filter-btn');
-    const woCards = document.querySelectorAll('.wo-card');
+    const bentoFilters = document.querySelectorAll('.bento-filter-btn');
+    const bentoCards = document.querySelectorAll('.bento-card');
 
-    // Filtering logic
-    filterBtns.forEach(btn => {
+    bentoFilters.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
+            bentoFilters.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
             const filterValue = btn.getAttribute('data-filter');
 
-            woCards.forEach(card => {
+            bentoCards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 
-                // Reset display before animating
-                card.style.display = 'block';
+                card.style.display = 'flex';
                 card.style.position = 'relative';
 
                 if (filterValue === 'all' || filterValue === category) {
@@ -326,7 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 300);
                 } else {
                     card.classList.add('fade-out');
-                    // Wait for animation to finish before removing from layout
                     setTimeout(() => {
                         if (card.classList.contains('fade-out')) {
                             card.style.display = 'none';
@@ -336,7 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         
-        // Accessibility
         btn.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -345,27 +339,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Expand/Collapse logic
-    const expandBtns = document.querySelectorAll('.wo-expand-btn');
-    
-    expandBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const card = this.closest('.wo-card');
-            const fullScope = card.querySelector('.wo-full-scope');
+    bentoCards.forEach(card => {
+        const fullScope = card.querySelector('.wo-full-scope');
+        const expandBtn = card.querySelector('.bento-expand-btn');
+        const expandSpan = expandBtn.querySelector('span');
+        
+        const toggleCard = () => {
             const isExpanded = card.classList.contains('expanded');
             
             if (isExpanded) {
-                // Collapse
                 fullScope.style.display = 'none';
                 card.classList.remove('expanded');
-                this.setAttribute('aria-expanded', 'false');
-                this.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
+                expandBtn.setAttribute('aria-expanded', 'false');
+                expandSpan.textContent = 'View Details';
             } else {
-                // Expand
                 fullScope.style.display = 'block';
                 card.classList.add('expanded');
-                this.setAttribute('aria-expanded', 'true');
-                this.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
+                expandBtn.setAttribute('aria-expanded', 'true');
+                expandSpan.textContent = 'Hide Details';
+            }
+        };
+
+        // Click on entire card toggles expansion
+        card.addEventListener('click', toggleCard);
+        
+        // Enter/Space on focused card
+        card.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleCard();
             }
         });
     });
