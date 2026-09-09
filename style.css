@@ -2219,44 +2219,7 @@ h3 { font-size: clamp(20px, 4vw, 24px); }
     background: var(--accent-color);
 }
 
-/* =========================================================================
-   CLIENT HOVER DETAIL
-   ========================================================================= */
-.client-logo {
-    position: relative;
-}
-.client-hover-detail {
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary-color);
-    color: white;
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 10;
-    pointer-events: none;
-}
-.client-hover-detail::after {
-    content: "";
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 0 5px 5px 5px;
-    border-style: solid;
-    border-color: transparent transparent var(--primary-color) transparent;
-}
-.client-logo:hover .client-hover-detail {
-    opacity: 1;
-    visibility: visible;
-    bottom: -20px;
-}
+
 
 /* =========================================================================
    MULTI-LOCATION GRID
