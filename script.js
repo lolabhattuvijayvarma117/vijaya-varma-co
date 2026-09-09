@@ -372,4 +372,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    // ==========================================
+    // OPERATIONAL DIVISIONS TABS
+    // ==========================================
+    const divisionTabs = document.querySelectorAll('.division-tab-btn');
+    const divisionContents = document.querySelectorAll('.division-content');
+
+    divisionTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active classes
+            divisionTabs.forEach(t => t.classList.remove('active'));
+            divisionContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            tab.classList.add('active');
+            const targetId = tab.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // ==========================================
+    // LABORATORY PARAMETER SELECTOR
+    // ==========================================
+    const labSelector = document.getElementById('lab-selector');
+    const labTables = document.querySelectorAll('.lab-table');
+
+    if (labSelector) {
+        labSelector.addEventListener('change', (e) => {
+            const selectedVal = e.target.value;
+            labTables.forEach(table => {
+                table.style.display = 'none';
+            });
+            document.getElementById('table-' + selectedVal).style.display = 'table';
+        });
+    }
+
 });
